@@ -1,14 +1,13 @@
 pipeline {
     agent any
-    tools {
-        maven 'M2_HOME'
-    }
+    
+    // Nous avons supprimé le bloc "tools" ici pour forcer l'utilisation de Java 17 du système
+    
     stages {
         stage('GIT') {
             steps {
                 echo "Getting Project from Git"
-                git branch: 'main', 
-                    url: 'https://github.com/ahmed4gaddes/projectdevops44.git'
+                git branch: 'main', url: 'https://github.com/ahmed4gaddes/projectdevops44.git'
             }
         }
         
