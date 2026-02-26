@@ -1,7 +1,11 @@
 pipeline {
     agent any
     
-    // Nous avons supprimé le bloc "tools" ici pour forcer l'utilisation de Java 17 du système
+    // On force l'utilisation stricte de Java 17 pour Maven
+    environment {
+        JAVA_HOME = "/usr/lib/jvm/java-17-openjdk-amd64"
+        PATH = "${JAVA_HOME}/bin:${env.PATH}"
+    }
     
     stages {
         stage('GIT') {
